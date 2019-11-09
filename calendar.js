@@ -4,7 +4,7 @@ var url = 'https://api.myjson.com/bins/xwuk4';
 function showResult(){
 	let today = new Date();
 	let fullYear = today.getFullYear();
-	let month =  today.getMonth();
+	let month =  today.getMonth() + 1;
 	let day  = today.getDate();
 
 	let todayString = "" + fullYear + "" + month + "" + day ;
