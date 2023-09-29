@@ -16,7 +16,8 @@ function showResult(){
 		var i;
 
 		 for (i = 0; i < data.length; i++) {
-
+			console.log("\""+todayString+"\"");
+			console.log(JSON.stringify(data[i].date));
 		 	if("\""+todayString+"\"" == JSON.stringify(data[i].date)){
 				resultDiv.innerHTML = JSON.stringify(data[i].description);
 				break;
