@@ -1,5 +1,5 @@
 //Calendar
-var url = 'https://7ca1-116-75-160-164.ngrok-free.app/posts';
+var gistUrl = 'https://gist.githubusercontent.com/ashish-solankar/d339885d4f70f5cd32422c7a6ed8daf0/raw/';
 
 function showResult(){
 	let today = new Date();
@@ -10,6 +10,11 @@ function showResult(){
 	let todayString = "" + fullYear + "" + month + "" + day ;
 
 	const resultDiv = document.getElementById("container");
+	var url = '';
+	$.getJSON(gistUrl, function(data) {
+		console.log(JSON.stringify(data.dbUrl));
+		url = JSON.stringify(data.dbUrl) + "/posts";
+	}
 
 	$.getJSON(url, function(data) {
 
