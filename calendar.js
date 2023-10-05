@@ -14,7 +14,7 @@ function showResult(){
 	$.getJSON(gistUrl, function(data) {
 		console.log(JSON.stringify(data.dbUrl));
 		url = JSON.stringify(data.dbUrl) + "/posts";
-	}
+	});
 
 	$.getJSON(url, function(data) {
 
