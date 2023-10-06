@@ -10,10 +10,10 @@ function showResult(){
 	let todayString = "" + fullYear + "" + month + "" + day ;
 
 	const resultDiv = document.getElementById("container");
-	var url = '';
+	var url = "";
 	$.getJSON(gistUrl, function(data) {
 		console.log(JSON.stringify(data.dbUrl));
-		url = JSON.stringify(data.dbUrl) + "/posts";
+		url = url.concat(JSON.stringify(data.dbUrl), "/posts");
 	});
 
 	$.getJSON(url, function(data) {
