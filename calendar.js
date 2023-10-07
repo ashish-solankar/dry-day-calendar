@@ -12,12 +12,11 @@ function showResult(){
 	const resultDiv = document.getElementById("container");
 	var url = "";
 	$.getJSON(gistUrl, function(data) {
-		console.log(JSON.stringify(data.dbUrl));
-		url = url.concat(JSON.stringify(data.dbUrl), "/posts");
+		url = url.concat(data.dbUrl, "/posts");
 	});
-
+	console.log("url is:");
+	console.log(url);
 	$.getJSON(url, function(data) {
-
 		var i;
 
 		 for (i = 0; i < data.length; i++) {
