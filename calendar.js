@@ -13,24 +13,21 @@ function showResult(){
 	var url = "";
 	$.getJSON(gistUrl, function(data) {
 		url = url.concat(data.dbUrl, "/posts");
+		console.log("url is:");
+		console.log(url);
+
+		$.getJSON(url, function(data) {
+			var i;
+			for (i = 0; i < data.length; i++) {
+				console.log("\""+todayString+"\"");
+				console.log(JSON.stringify(data[i].date));
+		 		if("\""+todayString+"\"" == JSON.stringify(data[i].date)){
+					resultDiv.innerHTML = JSON.stringify(data[i].description);
+					break;
+				}else{
+					resultDiv.innerHTML = "No you can enjoy your drink ...";
+				}
+			}      
+		});
 	});
-	console.log("url is:");
-	console.log(url);
-	$.getJSON(url, function(data) {
-		var i;
-
-		 for (i = 0; i < data.length; i++) {
-			console.log("\""+todayString+"\"");
-			console.log(JSON.stringify(data[i].date));
-		 	if("\""+todayString+"\"" == JSON.stringify(data[i].date)){
-				resultDiv.innerHTML = JSON.stringify(data[i].description);
-				break;
-		 	}else{
-		 		resultDiv.innerHTML = "No you can enjoy your drink ...";
-		 	}
-
-		 }
-         
-    });
-
 }
